@@ -1,0 +1,162 @@
+// Ultimate form reset
+// https://gist.github.com/nathansmith/1599212
+
+label
+  font-weight: bold
+  +cursor(pointer)
+
+input::ms-clear,
+select::-ms-expand, // Get rid of drop-down arrow in IE
+input[type="password"]::ms-reveal,
+input[type="search"]::-webkit-search-decoration
+  display: none
+
+input[type="radio"],
+input[type="checkbox"]
+  margin: 0
+  padding: 0
+  outline: 0
+
+textarea,
+select,
+button,
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input[type="reset"],
+input[type="submit"],
+input[type="button"],
+input[type="image"]
+  +inline-block(top)
+  margin: 0
+  padding: 0
+  border: 0
+  outline: 0
+  background: none
+  font-size: inherit
+  font-family: inherit
+  text-align: left
+  line-height: inherit
+
+  // Undo WebKit defaults
+  +appearance(none)
+
+  // Adjust background display
+  +background-clip(padding-box)
+
+  // Remove rounded corners
+  +border-radius(0)
+
+  // Change box model
+  +box-sizing(border-box)
+
+  // Get rid of up/down, plus/minus buttons
+  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+    -webkit-appearance: none
+
+button,
+input[type="reset"],
+input[type="submit"],
+input[type="button"],
+input[type="image"] 
+  overflow: visible
+  text-align: center
+  text-decoration: none
+  width: auto
+  +cursor(pointer)
+
+  // Deny selection of buttons
+  +user-select(none)
+
+  // Make buttons play nice in IE
+  @at-root .ie7 &, .lt-ie8 &
+    filter: chroma(color=#000000)
+
+button,
+input[type="reset"],
+input[type="submit"],
+input[type="button"] 
+  // Firefox has this in its user-agent (?)
+  // stylesheet, so let's just roll with it.
+  //
+  // http://meyerweb.com/eric/thoughts/2008/05/06/line-height-abnormal
+  //
+  // http://cssnewbie.com/input-button-line-height-bug
+  //
+  line-height: normal
+
+// Fix abnormal line height in Safari
+//   http://stackoverflow.com/a/17681447
+\::-webkit-input-placeholder
+  line-height: normal
+
+input[type="hidden"]
+  font-size: 0
+
+button[disabled],
+input[disabled],
+select[disabled],
+select[disabled] option,
+select[disabled] optgroup,
+textarea[disabled]
+  +user-select(none)
+  +cursor(not-allowed)
+  +opacity(1)
+
+textarea
+  min-height: 4em
+  overflow: auto
+  resize: vertical
+  width: 100%
+
+optgroup 
+  font-style: normal
+  font-weight: normal
+
+  // Font family repeated, for Firefox.
+  font-family: inherit
+
+select option
+  border: 0
+
+// For Firefox
+@-moz-document url-prefix() 
+  input,
+  button,
+  select,
+  textarea 
+    // Suppress red glow that Firefox
+    // adds to form fields by default,
+    // even when user is still typing.
+    &:invalid 
+      -moz-box-shadow: none
+      box-shadow: none
+
+    // Kill phantom spacing and dotted
+    // border that appears in Firefox.
+    // http://stackoverflow.com/questions/18794026/remove-dotted-outline-from-range-input-element-in-firefox
+    &::-moz-focus-inner,
+    &::-moz-focus-outer,
+    &:-moz-focusring
+      border: 0
+      padding: 0
+      outline: 0
+
+  // Get rid of drop-down arrow
+  // https://gist.github.com/joaocunha/6273016/
+  // TODO There is solution. Need to read all comments and write CSS which fixes this issue
+  // overflow: -moz-hidden-unscrollable
+  select
+    -moz-appearance: none
+    text-indent: 0.01px
+    text-overflow: ''

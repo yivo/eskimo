@@ -1,0 +1,17 @@
+// _decimal.scss | MIT License | gist.github.com/terkel/4373420
+
+// Ceil a number to specified digits.
+//
+// @param  Number $number A number to round
+// @param  Number [$digits:0] Digits to output
+// @return Number A ceiled number
+// @example
+//   x-ceil(0.333)    => 1
+//   x-ceil(0.333, 1) => 0.4
+//   x-ceil(0.333, 2) => 0.34
+//   x-ceil(0.666)    => 1
+//   x-ceil(0.666, 1) => 0.7
+//   x-ceil(0.666, 2) => 0.67
+//
+@function x-ceil($number, $digits: 0)
+  @return x-round($number, $digits, ceil)

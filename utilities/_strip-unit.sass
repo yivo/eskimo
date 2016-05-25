@@ -1,0 +1,5 @@
+@function strip-unit($n)
+  @if unitless($n)
+    @return $n
+  @else
+    @return $n / ($n * 0 + 1)

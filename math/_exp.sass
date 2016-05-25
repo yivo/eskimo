@@ -1,0 +1,8 @@
+@function exp($value, $series-members: 100)
+  $sum: 0
+  @for $index from 0 to $series-members
+    $sum: $sum + exp-maclaurin($value, $index)
+  @return $sum
+
+@function exp-maclaurin($x, $n)
+  @return (pow($x, $n) / factorial($n))

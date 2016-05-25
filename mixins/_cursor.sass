@@ -1,0 +1,11 @@
+=cursor($type)
+  @if $type == grab
+    cursor: grab
+    cursor: -moz-grab
+    cursor: -webkit-grab
+  @else if $type == grabbing
+    cursor: grabbing
+    cursor: -moz-grabbing
+    cursor: -webkit-grabbing
+  @else
+    cursor: $type

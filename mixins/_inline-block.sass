@@ -1,0 +1,9 @@
+// Crossbrowser inline-block
+=inline-block($align: middle)
+  display: -moz-inline-stack
+  display: inline-block
+  @if $align != none
+    vertical-align: $align
+    *vertical-align: auto
+  *zoom: 1
+  *display: inline

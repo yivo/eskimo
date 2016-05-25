@@ -1,0 +1,12 @@
+@function ln($value, $series-members: 100)
+  $ten-exp: 1
+  $ln-ten: 2.30258509
+  @while $value > pow(10, $ten-exp)
+    $ten-exp: $ten-exp + 1
+  $sum: 0
+  @for $index from 1 to $series-members
+    $sum: $sum + ln-maclaurin($value / pow(10, $ten-exp), $index)
+  @return $sum + $ten-exp * $ln-ten
+
+@function ln-maclaurin($x, $n)
+  @return (pow(-1, $n + 1) / $n) * (pow($x - 1, $n))
