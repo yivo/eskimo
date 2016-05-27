@@ -21,6 +21,7 @@
   overflow-wrap: $type // New name as per the CSS3 spec
 
 // http://www.impressivewebs.com/css-white-space/
+// http://meyerweb.com/eric/css/tests/white-space.html
 =white-space($type)
   // pre-line is not supported by IE up to version 7, Firefox up to version 3.0, and Opera up to version 9.2.
 
@@ -53,9 +54,8 @@
   font-family: $font-family-monospace
   +white-space(pre)
   +white-space(pre-wrap)
-  +white-space(pre-line)
-  +word-wrap(normal)
-  +word-break(normal)
+  +word-wrap(break-word)
+  +word-break(break-word)
   line-break: auto
   +hyphens(none)
   +tab-size(4)
