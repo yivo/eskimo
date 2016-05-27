@@ -171,6 +171,7 @@
   overflow-wrap: $type // New name as per the CSS3 spec
 
 // http://www.impressivewebs.com/css-white-space/
+// http://meyerweb.com/eric/css/tests/white-space.html
 =white-space($type)
   // pre-line is not supported by IE up to version 7, Firefox up to version 3.0, and Opera up to version 9.2.
 
@@ -203,12 +204,13 @@
   font-family: $font-family-monospace
   +white-space(pre)
   +white-space(pre-wrap)
-  +white-space(pre-line)
-  +word-wrap(normal)
-  +word-break(normal)
+  +word-wrap(break-word)
+  +word-break(break-word)
   line-break: auto
   +hyphens(none)
   +tab-size(4)
+  unicode-bidi: embed
+  direction: ltr
 
 // One-line and multi-line text ellipsis mixins
 
@@ -428,6 +430,9 @@
 strong, b
   font-weight: bold
 
+s, strike, del
+  text-decoration: line-through
+
 i, em, span[lang]
   font-style: italic
 
@@ -441,11 +446,8 @@ img
 p
   margin-bottom: 1em
 
-header, section, footer, hr
+header, section, footer, hr, blockquote, table
   +clear
-
-del
-  text-decoration: line-through
 
 abbr[title], dfn[title]
   border-bottom: 1px dotted #000
@@ -470,7 +472,7 @@ hr
   display: block
   height: 1px
   border: 0
-  border-top: 1px solid #ccc
+  border-top: 1px solid #CCCCCC
   margin: 1em 0
   padding: 0
   font-size: 0
@@ -508,15 +510,29 @@ code, tt
     letter-spacing: -0.2em
     content: '\00a0'
 
-q, blockquote
-  font-size: inherit
-  font-style: italic
+// https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/
+blockquote
+  display: block
+  width: 90%
+  margin: 0 auto
+  padding: 0.75em 10px 0.75em 10px
+  background: lighten(#CCCCCC, 17.5%)
+  border-left: 10px solid #CCCCCC
   color: inherit
-  padding-left: 20px
-  padding-right: 8px
-  margin: 0
-  border: 0
-  border-left: 5px solid #ccc
+  quotes: "\201C""\201D""\2018""\2019"
+  blockquote
+    width: 100%
+    padding: 0.5em 10px
+    margin: 0.3em 0 0 10px
+  &:before
+    color: #CCCCCC
+    content: open-quote
+    font-size: 4em
+    line-height: 0.1em
+    margin-right: 0.25em
+    vertical-align: -0.4em
+  p
+    display: inline
 
 table
   border-collapse: collapse
@@ -537,6 +553,7 @@ td
 
 th
   font-weight: bold
+
 // Ultimate form reset
 // https://gist.github.com/nathansmith/1599212
 
@@ -711,6 +728,11 @@ select option
 
 .cursor-grabbing
   +cursor(grabbing)
+
+$compass-rose: nw n ne e se s sw w
+@each $direction in $compass-rose
+  .cursor-#{$direction}-resize
+    +cursor(#{$direction}-resize)
 
 .pull-right
   float: right

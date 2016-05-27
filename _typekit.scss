@@ -1,0 +1,19 @@
+// Contains typical font families for different purposes
+
+$font-family-emoji:     'Apple Color Emoji',
+                        'Segoe UI Emoji',
+                        'NotoColorEmoji',
+                        'Segoe UI Symbol',
+                        'Android Emoji',
+                        'EmojiSymbols' !default;
+
+$font-family-monospace: Consolas, Inconsolata,
+                        'Droid Sans Mono', Menlo, Monaco,
+                        'Fira Mono', 'Andale Mono',
+                        'Lucida Console',
+                        'Liberation Mono',
+                        'Bitstream Vera Sans Mono',
+                        'Courier New',
+                        Courier, monospace !default;
+
+$font-family-symbol:    'Lucida Console', Times, serif !default;

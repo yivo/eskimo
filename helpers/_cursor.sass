@@ -3,3 +3,8 @@
 
 .cursor-grabbing
   +cursor(grabbing)
+
+$compass-rose: nw n ne e se s sw w
+@each $direction in $compass-rose
+  .cursor-#{$direction}-resize
+    +cursor(#{$direction}-resize)
