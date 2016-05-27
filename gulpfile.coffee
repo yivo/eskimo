@@ -12,7 +12,7 @@ gulp.task 'default', ['build', 'watch'], ->
 gulp.task 'build', ->
   gulp.src('__manifest__.sass')
   .pipe plumber()
-  .pipe replace(/^\s*@import ((?:[a-z-]+\/)*)([a-z-]+)(?:\.sass)?$/gmi, '// @include $1_$2.sass')
+  .pipe replace(/^\s*@import ((?:[a-z0-9-]+\/)*)([a-z0-9-]+)(?:\.sass)?$/gmi, '// @include $1_$2.sass')
   .pipe preprocess()
   .pipe concat('_eskimo.sass')
   .pipe gulp.dest('.')
