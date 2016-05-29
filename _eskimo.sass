@@ -438,10 +438,14 @@ i, em, span[lang]
 
 img
   line-height: 0
+  border: 0
 
   // Scale images in IE7 more attractively
   @at-root .ie7 &, .lt-ie8 &
     -ms-interpolation-mode: bicubic
+
+a
+  +cursor(pointer)
 
 p
   margin-bottom: 1em
@@ -450,7 +454,7 @@ header, section, footer, hr, blockquote, table
   +clear
 
 abbr[title], dfn[title]
-  border-bottom: 1px dotted #000
+  border-bottom: 1px dotted $black
   +cursor(help)
 
 small
@@ -472,12 +476,15 @@ hr
   display: block
   height: 1px
   border: 0
-  border-top: 1px solid #CCCCCC
+  border-top: 1px solid $gray
   margin: 1em 0
   padding: 0
   font-size: 0
   line-height: 0
   +user-select(none)
+  &.dotted
+    border-style: dotted
+
 
 h1, h2, h3, h4, h5, h6
   margin: ($headings-scale / 2) * 1em 0
@@ -516,8 +523,8 @@ blockquote
   width: 90%
   margin: 0 auto
   padding: 0.75em 10px 0.75em 10px
-  background: lighten(#CCCCCC, 17.5%)
-  border-left: 10px solid #CCCCCC
+  background: lighten($gray, 17.5%)
+  border-left: 10px solid $gray
   color: inherit
   quotes: "\201C""\201D""\2018""\2019"
   blockquote
@@ -525,7 +532,7 @@ blockquote
     padding: 0.5em 10px
     margin: 0.3em 0 0 10px
   &:before
-    color: #CCCCCC
+    color: $gray
     content: open-quote
     font-size: 4em
     line-height: 0.1em
