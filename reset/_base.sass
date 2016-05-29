@@ -17,10 +17,14 @@ i, em, span[lang]
 
 img
   line-height: 0
+  border: 0
 
   // Scale images in IE7 more attractively
   @at-root .ie7 &, .lt-ie8 &
     -ms-interpolation-mode: bicubic
+
+a
+  +cursor(pointer)
 
 p
   margin-bottom: 1em
