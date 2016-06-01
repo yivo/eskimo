@@ -318,6 +318,12 @@
   // Opera 9+, IE 9+
   opacity: $n
 
+=transparent
+  +opacity(0)
+
+=opaque
+  +opacity(1)
+
 @function strip-unit($n)
   @if unitless($n)
     @return $n
