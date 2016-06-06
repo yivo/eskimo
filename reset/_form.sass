@@ -85,7 +85,7 @@ input[type="image"]
 button,
 input[type="reset"],
 input[type="submit"],
-input[type="button"] 
+input[type="button"]
   // Firefox has this in its user-agent (?)
   // stylesheet, so let's just roll with it.
   //
@@ -93,12 +93,12 @@ input[type="button"]
   //
   // http://cssnewbie.com/input-button-line-height-bug
   //
-  line-height: normal
+  line-height: inherit
 
 // Fix abnormal line height in Safari
 //   http://stackoverflow.com/a/17681447
 \::-webkit-input-placeholder
-  line-height: normal
+  line-height: inherit
 
 input[type="hidden"]
   font-size: 0
