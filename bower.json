@@ -1,0 +1,19 @@
+{
+  "name": "eskimo",
+  "homepage": "https://github.com/yivo/eskimo",
+  "authors": [
+    "Yaroslav Konoplov <yaroslav@inbox.com>"
+  ],
+  "description": "Must-have SASS lib",
+  "main": "_eskimo.sass",
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "spec",
+    "coffeespec",
+    "gulpfile.*"
+  ]
+}
