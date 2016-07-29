@@ -102,10 +102,12 @@
 
 =cursor($type)
   @if $type == grab
+    cursor: move
     cursor: grab
     cursor: -moz-grab
     cursor: -webkit-grab
   @else if $type == grabbing
+    cursor: move
     cursor: grabbing
     cursor: -moz-grabbing
     cursor: -webkit-grabbing
