@@ -1,0 +1,8 @@
+=blur($radius, $extrafilters)
+  filter:         blur(#{$radius}px) #{$extrafilters}
+  -webkit-filter: blur(#{$radius}px) #{$extrafilters}
+  -moz-filter:    blur(#{$radius}px) #{$extrafilters}
+  -o-filter:      blur(#{$radius}px) #{$extrafilters}
+  -ms-filter:     blur(#{$radius}px) #{$extrafilters}
+  filter: url('data:image/svg+xml;charset=utf-8,%3Csvg%20version=%221.1%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter%20id=%22blur#{$radius}%22%3E%3CfeGaussianBlur%20stdDeviation=%22#{$radius}%22%20/%3E%3C/filter%3E%3C/svg%3E#blur#{$radius}')
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='#{$radius}')
