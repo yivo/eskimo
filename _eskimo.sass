@@ -5,6 +5,12 @@
 //   @import compass
 //   @import compass/reset
 //   @import eskimo/eskimo
+
+// Or is using compass-mixins:
+//   @import compass-mixins/lib/compass
+//   @import compass-mixins/lib/compass/reset
+//   @import compass-mixins/lib/animation/core
+//   @import eskimo/eskimo
 // Media queries for different devices
 
 // ----- Phone breakpoints -----
@@ -251,7 +257,7 @@
     padding-right: 5px
 
     text-align: right
-    background: white
+    background: #fff
     background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(white), color-stop(50%, white))
     background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white)
     background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white)
@@ -325,14 +331,26 @@
 =opaque
   +opacity(1)
 
-=blur($radius, $extrafilters)
-  filter:         blur(#{$radius}px) #{$extrafilters}
+// TODO Update this mixin
+=blur($radius, $extrafilters: '')
+  @if $radius == 0
+    filter: none
+  @else
+    filter: blur(#{$radius}px) #{$extrafilters}
+
   -webkit-filter: blur(#{$radius}px) #{$extrafilters}
   -moz-filter:    blur(#{$radius}px) #{$extrafilters}
   -o-filter:      blur(#{$radius}px) #{$extrafilters}
   -ms-filter:     blur(#{$radius}px) #{$extrafilters}
-  filter: url('data:image/svg+xml;charset=utf-8,%3Csvg%20version=%221.1%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter%20id=%22blur#{$radius}%22%3E%3CfeGaussianBlur%20stdDeviation=%22#{$radius}%22%20/%3E%3C/filter%3E%3C/svg%3E#blur#{$radius}')
-  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='#{$radius}')
+
+  @if $radius > 0
+    filter: url('data:image/svg+xml;charset=utf-8,%3Csvg%20version=%221.1%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter%20id=%22blur#{$radius}%22%3E%3CfeGaussianBlur%20stdDeviation=%22#{$radius}%22%20/%3E%3C/filter%3E%3C/svg%3E#blur#{$radius}')
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='#{$radius}')
+
+=background-size($size)
+  -moz-background-size: $size
+  -webkit-background-size: $size
+  background-size: $size
 
 @function strip-unit($n)
   @if unitless($n)
