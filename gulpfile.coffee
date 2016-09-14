@@ -18,4 +18,9 @@ gulp.task 'build', ->
   .pipe gulp.dest('.')
 
 gulp.task 'watch', ->
-  gulp.watch ['mixins/**/*', 'functions/**/*', 'helpers/**/*', 'reset/**/*'], ['build']
+  gulp.watch ['mixins/**/*.sass'
+              'helpers/**/*.sass'
+              'reset/**/*.sass'
+              'math/**/*.sass'
+              'utilities/**/*.sass'
+              '*.sass'], ['build']
