@@ -1,5 +1,5 @@
 h1, h2, h3, h4, h5, h6
-  margin: ($headings-scale / 2) * 1em 0
+  margin: $headings-scale * 0.3 * 1em 0
   padding: 0
   line-height: 1.1
   font-style: normal
@@ -7,15 +7,15 @@ h1, h2, h3, h4, h5, h6
   color: inherit
   font-family: inherit
 
-h1
-  font-size: pow($headings-scale, 4) * 1em
-h2
-  font-size: pow($headings-scale, 3) * 1em
-h3
-  font-size: pow($headings-scale, 2) * 1em
-h4
-  font-size: pow($headings-scale, 1) * 1em
-h5
-  font-size: pow($headings-scale, -1) * 1em
-h6
-  font-size: pow($headings-scale, -2) * 1em
+$i: 1
+$j: 4
+@while $i <= 6
+  h#{$i}
+    @if global-variable-exists(font-size-base)
+      font-size: pow($headings-scale, $j) * $font-size-base
+    @else
+      font-size: pow($headings-scale, $j) * 1em
+  $i: $i + 1
+  $j: $j - 1
+  @if $j == 0
+    $j: -1
