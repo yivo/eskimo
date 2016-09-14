@@ -9,12 +9,16 @@ h1, h2, h3, h4, h5, h6
 
 $i: 1
 $j: 4
+
 @while $i <= 6
   h#{$i}
+    $size: pow($headings-scale, $j)
     @if global-variable-exists(font-size-base)
-      font-size: pow($headings-scale, $j) * $font-size-base
+      $size: $size * $font-size-base
     @else
-      font-size: pow($headings-scale, $j) * 1em
+      $size: $size * 1em
+    font-size: $size
+
   $i: $i + 1
   $j: $j - 1
   @if $j == 0
