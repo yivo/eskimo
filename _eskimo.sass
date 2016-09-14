@@ -11,6 +11,8 @@
 //   @import compass-mixins/lib/compass/reset
 //   @import compass-mixins/lib/animation/core
 //   @import eskimo/eskimo
+
+// Also you must provider math functions. Recommended: github.com/terkel/mathsass
 // Media queries for different devices
 
 // ----- Phone breakpoints -----
@@ -352,6 +354,25 @@
   -webkit-background-size: $size
   background-size: $size
 
+=rotate($deg)
+  -moz-transform:     rotate($deg)
+  -o-transform:       rotate($deg)
+  -webkit-transform:  rotate($deg)
+  -ms-transform:      rotate($deg)
+  transform:          rotate($deg)
+
+  $m11: cos($deg)
+  $m12: sin($deg) * -1
+  $m21: sin($deg)
+  $m22: cos($deg)
+
+  // IE8+ - must be on one line, unfortunately
+  -ms-filter: progid:DXImageTransform.Microsoft.Matrix(M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, SizingMethod='auto expand')
+
+  // IE6 and 7
+  filter:     progid:DXImageTransform.Microsoft.Matrix(M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, SizingMethod='auto expand')
+  zoom: 1
+
 @function strip-unit($n)
   @if unitless($n)
     @return $n
@@ -437,52 +458,6 @@
 //
 @function x-floor($number, $digits: 0)
   @return x-round($number, $digits, floor)
-
-@function exp($value, $series-members: 100)
-  $sum: 0
-  @for $index from 0 to $series-members
-    $sum: $sum + exp-maclaurin($value, $index)
-  @return $sum
-
-@function exp-maclaurin($x, $n)
-  @return (pow($x, $n) / factorial($n))
-
-@function factorial($value)
-  $result: 1
-  @if $value == 0
-    @return $result
-  @for $index from 1 through $value
-    $result: $result * $index
-  @return $result
-
-@function pow($number, $exp)
-  @if round($exp) != $exp
-    @return exp($exp * ln($number))
-
-  $value: 1
-
-  @if $exp > 0
-    @for $i from 1 through $exp
-      $value: $value * $number
-
-  @else if $exp < 0
-    @for $i from 1 through -$exp
-      $value: $value / $number
-
-  @return $value
-
-@function ln($value, $series-members: 100)
-  $ten-exp: 1
-  $ln-ten: 2.30258509
-  @while $value > pow(10, $ten-exp)
-    $ten-exp: $ten-exp + 1
-  $sum: 0
-  @for $index from 1 to $series-members
-    $sum: $sum + ln-maclaurin($value / pow(10, $ten-exp), $index)
-  @return $sum + $ten-exp * $ln-ten
-
-@function ln-maclaurin($x, $n)
-  @return (pow(-1, $n + 1) / $n) * (pow($x - 1, $n))
 
 // Reset box model. I'm using "compass/reset" but compass does not reset box model.
 // I often forget about this and get a lot of bugs.
