@@ -76,7 +76,7 @@ input[type="image"]
   +cursor(pointer)
 
   // Deny selection of buttons
-  +user-select(none)
+  +noselect
 
   // Make buttons play nice in IE
   @at-root .ie7 &, .lt-ie8 &
@@ -109,7 +109,7 @@ select[disabled],
 select[disabled] option,
 select[disabled] optgroup,
 textarea[disabled]
-  +user-select(none)
+  +noselect
   +cursor(not-allowed)
   +opacity(1)
 
