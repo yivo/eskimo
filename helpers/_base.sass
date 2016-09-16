@@ -3,3 +3,9 @@
 
 .special-character, .symbol
   font-family: $font-family-symbol
+
+.noselect
+  +user-select(none)
+
+=noselect
+  @extend .noselect
