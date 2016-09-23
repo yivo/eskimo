@@ -34,6 +34,7 @@
 @mixin pc-md-lg    { @media (min-width: $pc-md-min)                             { @content } }
 @mixin pc-sm-md-lg { @include pc; }
 
+// ----- Negation breakpoints -----
 @mixin not-mobile    { @media (min-width: $tablet-sm-min)                              { @content } }
 @mixin not-mobile-sm { @media (min-width: $mobile-md-min)                              { @content } }
 @mixin not-mobile-md { @media (max-width: $mobile-sm-max), (min-width: $mobile-lg-min) { @content } }
@@ -64,6 +65,17 @@
 @mixin neither-mobile-nor-tablet { @include pc { @content }; }
 @mixin neither-tablet-nor-pc     { @include mobile { @content }; }
 
+// ----- Legacy breakpoints -----
+@mixin phone        { @include mobile { @content }; }
+@mixin large-phone  { @include mobile-lg { @content }; }
+@mixin medium-phone { @include mobile-md { @content }; }
+@mixin small-phone  { @include mobile-sm { @content }; }
+@mixin desktop        { @include pc { @content }; }
+@mixin large-desktop  { @include pc-lg { @content }; }
+@mixin medium-desktop { @include pc-md { @content }; }
+@mixin small-desktop  { @include pc { @content }; }
+
+// ----- Debugging -----
 @mixin debug-breakpoint($breakpoint, $min, $max: null) {
   $rules: '(min-width: #{$min})';
   @if ($max) { $rules: append($rules, 'and (max-width: #{$max})'); }
@@ -97,13 +109,3 @@
   @include debug-breakpoint(pc-md,     $pc-md-min,     $pc-md-max);
   @include debug-breakpoint(pc-lg,     $pc-lg-min);
 }
-
-// Legacy breakpoints
-@mixin phone        { @include mobile { @content }; }
-@mixin large-phone  { @include mobile-lg { @content }; }
-@mixin medium-phone { @include mobile-md { @content }; }
-@mixin small-phone  { @include mobile-sm { @content }; }
-@mixin desktop        { @include pc { @content }; }
-@mixin large-desktop  { @include pc-lg { @content }; }
-@mixin medium-desktop { @include pc-md { @content }; }
-@mixin small-desktop  { @include pc { @content }; }
