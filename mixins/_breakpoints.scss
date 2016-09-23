@@ -1,0 +1,108 @@
+// Media queries for different devices
+
+// ----- Mobile breakpoints -----
+@mixin mobile          { @media (max-width: $mobile-max)                                    { @content } }
+@mixin mobile-sm       { @media (max-width: $mobile-sm-max)                                 { @content } }
+@mixin mobile-md       { @media (min-width: $mobile-md-min) and (max-width: $mobile-md-max) { @content } }
+@mixin mobile-lg       { @media (min-width: $mobile-lg-min) and (max-width: $mobile-lg-max) { @content } }
+
+@mixin mobile-sm-md    { @media (max-width: $mobile-md-max)                                 { @content } }
+@mixin mobile-md-lg    { @media (min-width: $mobile-md-min) and (max-width: $mobile-lg-max) { @content } }
+@mixin mobile-sm-md-lg { @include mobile { @content }; }
+
+// ----- Tablet breakpoints -----
+@mixin tablet          { @media (min-width: $tablet-min)    and (max-width: $tablet-max)    { @content } }
+@mixin tablet-sm       { @media (min-width: $tablet-sm-min) and (max-width: $tablet-sm-max) { @content } }
+@mixin tablet-md       { @media (min-width: $tablet-md-min) and (max-width: $tablet-md-max) { @content } }
+@mixin tablet-lg       { @media (min-width: $tablet-lg-min) and (max-width: $tablet-lg-max) { @content } }
+
+@mixin tablet-sm-md    { @media (min-width: $tablet-sm-min) and (max-width: $tablet-md-max) { @content } }
+@mixin tablet-md-lg    { @media (min-width: $tablet-md-min) and (max-width: $tablet-lg-max) { @content } }
+@mixin tablet-sm-md-lg { @include tablet { @content } }
+
+@mixin tablet-and-smaller { @media (max-width: $tablet-max) { @content } }
+@mixin tablet-and-larger  { @media (min-width: $tablet-min) { @content } }
+
+// ----- PC breakpoints -----
+// http://english.stackexchange.com/questions/300334/is-there-a-word-that-includes-laptops-desktops-macs-and-pcs-but-not-mobile-de
+@mixin pc          { @media (min-width: $pc-min)                                { @content } }
+@mixin pc-sm       { @media (min-width: $pc-sm-min) and (max-width: $pc-sm-max) { @content } }
+@mixin pc-md       { @media (min-width: $pc-md-min) and (max-width: $pc-md-max) { @content } }
+@mixin pc-lg       { @media (min-width: $pc-lg-min)                             { @content } }
+
+@mixin pc-sm-md    { @media (min-width: $pc-sm-min) and (max-width: $pc-md-max) { @content } }
+@mixin pc-md-lg    { @media (min-width: $pc-md-min)                             { @content } }
+@mixin pc-sm-md-lg { @include pc; }
+
+@mixin not-mobile    { @media (min-width: $tablet-sm-min)                              { @content } }
+@mixin not-mobile-sm { @media (min-width: $mobile-md-min)                              { @content } }
+@mixin not-mobile-md { @media (max-width: $mobile-sm-max), (min-width: $mobile-lg-min) { @content } }
+@mixin not-mobile-lg { @media (max-width: $mobile-md-max), (min-width: $tablet-sm-min) { @content } }
+
+@mixin not-mobile-sm-md    { @media (min-width: $mobile-lg-min)                              { @content } }
+@mixin not-mobile-md-lg    { @media (max-width: $mobile-sm-max), (min-width: $tablet-sm-min) { @content } }
+@mixin not-mobile-sm-md-lg { @include not-mobile { @content } }
+
+@mixin not-tablet    { @media (max-width: $mobile-lg-max), (min-width: $pc-sm-min)     { @content } }
+@mixin not-tablet-sm { @media (max-width: $mobile-lg-max), (min-width: $tablet-md-min) { @content } }
+@mixin not-tablet-md { @media (max-width: $tablet-sm-max), (min-width: $tablet-lg-min) { @content } }
+@mixin not-tablet-lg { @media (max-width: $tablet-md-max), (min-width: $pc-sm-min)     { @content } }
+
+@mixin not-tablet-sm-md    { @media (max-width: $mobile-lg-max), (min-width: $tablet-lg-min) { @content } }
+@mixin not-tablet-md-lg    { @media (max-width: $tablet-sm-max), (min-width: $pc-sm-min)     { @content } }
+@mixin not-tablet-sm-md-lg { @include not-tablet { @content } }
+
+@mixin not-pc    { @media (max-width: $tablet-lg-max)                          { @content } }
+@mixin not-pc-sm { @media (max-width: $tablet-lg-max), (min-width: $pc-md-min) { @content } }
+@mixin not-pc-md { @media (max-width: $pc-sm-max), (min-width: $pc-lg-min)     { @content } }
+@mixin not-pc-lg { @media (max-width: $pc-md-max)                              { @content } }
+
+@mixin not-pc-sm-md    { @media (max-width: $tablet-lg-max), (min-width: $pc-lg-min) { @content } }
+@mixin not-pc-md-lg    { @media (max-width: $pc-sm-max)                              { @content } }
+@mixin not-pc-sm-md-lg { @include not-pc { @content } }
+
+@mixin neither-mobile-nor-tablet { @include pc { @content }; }
+
+@mixin debug-breakpoint($breakpoint, $min, $max: null) {
+  $rules: '(min-width: #{$min})';
+  @if ($max) { $rules: append($rules, 'and (max-width: #{$max})'); }
+  @media #{$rules} {
+    body:before {
+      $content: '#{$breakpoint}: #{$min} <= x <= ';
+      @if ($max) {
+        $content: append($content, '#{$max}');
+      } @else { $content: append($content, '∞'); }
+
+      content: $content;
+      font-weight: bold;
+      display: block;
+      text-align: center;
+      color: $black;
+      font-family: $font-family-monospace;
+      background: $gray;
+      font-size: 1.2em;
+    }
+  }
+}
+
+@if ($debug-breakpoints) {
+  @include debug-breakpoint(mobile-sm, 0,              $mobile-sm-max);
+  @include debug-breakpoint(mobile-md, $mobile-md-min, $mobile-md-max);
+  @include debug-breakpoint(mobile-lg, $mobile-lg-min, $mobile-lg-max);
+  @include debug-breakpoint(tablet-sm, $tablet-sm-min, $tablet-sm-max);
+  @include debug-breakpoint(tablet-md, $tablet-md-min, $tablet-md-max);
+  @include debug-breakpoint(tablet-lg, $tablet-lg-min, $tablet-lg-max);
+  @include debug-breakpoint(pc-sm,     $pc-sm-min,     $pc-sm-max);
+  @include debug-breakpoint(pc-md,     $pc-md-min,     $pc-md-max);
+  @include debug-breakpoint(pc-lg,     $pc-lg-min);
+}
+
+// Legacy breakpoints
+@mixin phone        { @include mobile { @content }; }
+@mixin large-phone  { @include mobile-lg { @content }; }
+@mixin medium-phone { @include mobile-md { @content }; }
+@mixin small-phone  { @include mobile-sm { @content }; }
+@mixin desktop        { @include pc { @content }; }
+@mixin large-desktop  { @include pc-lg { @content }; }
+@mixin medium-desktop { @include pc-md { @content }; }
+@mixin small-desktop  { @include pc { @content }; }

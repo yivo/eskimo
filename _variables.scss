@@ -2,4 +2,39 @@ $white: #FFFFFF !default;
 $black: #000000 !default;
 $gray:  #CCCCCC !default;
 
-$headings-scale: 1.155 !default;
+$headings-scale: 1.155             !default;
+$debug-breakpoints: true           !default;
+
+$mobile-sm-min: 0                  !default;
+$mobile-sm-max: 320px              !default;
+
+$mobile-md-min: $mobile-sm-max + 1 !default;
+$mobile-md-max: 375px              !default;
+
+$mobile-lg-min: $mobile-md-max + 1 !default;
+$mobile-lg-max: 485px              !default;
+
+$mobile-min:    $mobile-sm-min     !default;
+$mobile-max:    $mobile-lg-max     !default;
+
+$tablet-sm-min: $mobile-lg-max + 1 !default;
+$tablet-sm-max: 640px              !default;
+
+$tablet-md-min: $tablet-sm-max + 1 !default;
+$tablet-md-max: 768px              !default;
+
+$tablet-lg-min: $tablet-md-max + 1 !default;
+$tablet-lg-max: 960px              !default;
+
+$tablet-min:    $tablet-sm-min     !default;
+$tablet-max:    $tablet-lg-max     !default;
+
+$pc-sm-min:     $tablet-lg-max + 1 !default;
+$pc-sm-max:     1024px             !default;
+
+$pc-md-min:     $pc-sm-max + 1     !default;
+$pc-md-max:     1280px             !default;
+
+$pc-lg-min:     $pc-md-max + 1     !default;
+
+$pc-min:        $pc-sm-min         !default;
