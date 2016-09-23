@@ -9,5 +9,9 @@
     cursor: grabbing
     cursor: -moz-grabbing
     cursor: -webkit-grabbing
+  @else if $type == zoom-in
+    cursor: -webkit-zoom-in
+    cursor: -moz-zoom-in
+    cursor: zoom-in
   @else
     cursor: $type
