@@ -62,6 +62,7 @@
 @mixin not-pc-sm-md-lg { @include not-pc { @content } }
 
 @mixin neither-mobile-nor-tablet { @include pc { @content }; }
+@mixin neither-tablet-nor-pc     { @include mobile { @content }; }
 
 @mixin debug-breakpoint($breakpoint, $min, $max: null) {
   $rules: '(min-width: #{$min})';

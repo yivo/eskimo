@@ -23,3 +23,4 @@
 .pc-md-lg-only         { @include not-pc-md-lg { display: none !important; } }
 
 .mobile-or-tablet-only { @include neither-mobile-nor-tablet { display: none !important; } }
+.tablet-or-pc-only     { @include neither-tablet-nor-pc     { display: none !important; } }
