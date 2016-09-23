@@ -1,6 +1,5 @@
-@unless function-exists(strip-unit)
-  @function strip-unit($n)
-    @if unitless($n)
-      @return $n
-    @else
-      @return $n / ($n * 0 + 1)
+@function strip-unit($n)
+  @if unitless($n)
+    @return $n
+  @else
+    @return $n / ($n * 0 + 1)
