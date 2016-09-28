@@ -86,6 +86,12 @@
         $content: append($content, '#{$max}');
       } @else { $content: append($content, '∞'); }
 
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: auto;
+      z-index: pow(2, 31) - 1;
       content: $content;
       font-weight: bold;
       display: block;
