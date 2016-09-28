@@ -152,6 +152,11 @@ select option
       padding: 0
       outline: 0
 
+    // http://stackoverflow.com/questions/19451183/cannot-remove-outline-dotted-border-from-firefox-select-drop-down
+    &:-moz-focusring
+      color: transparent
+      text-shadow: 0 0 0 #000
+
   // Get rid of drop-down arrow
   // https://gist.github.com/joaocunha/6273016/
   // TODO There is solution. Need to read all comments and write CSS which fixes this issue
