@@ -7,9 +7,12 @@ label
 
 input::ms-clear,
 select::-ms-expand, // Get rid of drop-down arrow in IE
-input[type="password"]::ms-reveal,
-input[type="search"]::-webkit-search-decoration
+input[type="password"]::ms-reveal
   display: none
+
+[type="search"]
+  &::-webkit-search-decoration, &::-webkit-search-cancel-button
+    -webkit-appearance: none
 
 input[type="radio"],
 input[type="checkbox"]
@@ -114,8 +117,10 @@ textarea[disabled]
   +opacity(1)
 
 textarea
-  min-height: 4em
+  // normalize.css: Remove the default vertical scrollbar in IE
   overflow: auto
+
+  min-height: 4em
   resize: vertical
   width: 100%
 
@@ -123,18 +128,12 @@ optgroup
   font-style: normal
   font-weight: normal
 
-  // Font family repeated, for Firefox.
-  font-family: inherit
-
 select option
   border: 0
 
 // For Firefox
 @-moz-document url-prefix() 
-  input,
-  button,
-  select,
-  textarea 
+  input, button, select, textarea
     // Suppress red glow that Firefox
     // adds to form fields by default,
     // even when user is still typing.
@@ -152,16 +151,20 @@ select option
       padding: 0
       outline: 0
 
+  select
+    // Get rid of drop-down arrow
+    // https://gist.github.com/joaocunha/6273016/
+    // TODO There is solution. Need to read all comments and write CSS which fixes this issue
+    // overflow: -moz-hidden-unscrollable
+    -moz-appearance: none
+    text-indent: 0.01px
+    text-overflow: ''
+
     // http://stackoverflow.com/questions/19451183/cannot-remove-outline-dotted-border-from-firefox-select-drop-down
     &:-moz-focusring
       color: transparent
       text-shadow: 0 0 0 #000
 
-  // Get rid of drop-down arrow
-  // https://gist.github.com/joaocunha/6273016/
-  // TODO There is solution. Need to read all comments and write CSS which fixes this issue
-  // overflow: -moz-hidden-unscrollable
-  select
-    -moz-appearance: none
-    text-indent: 0.01px
-    text-overflow: ''
+  optgroup
+    // Font family repeated, for Firefox.
+    font-family: inherit
