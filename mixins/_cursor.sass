@@ -1,17 +1,20 @@
 =cursor($type)
   @if $type == grab
-    cursor: move
-    cursor: grab
-    cursor: -moz-grab
-    cursor: -webkit-grab
+    cursor: move !important
+    cursor: grab !important
+    cursor: -moz-grab !important
+    cursor: -webkit-grab !important
   @else if $type == grabbing
-    cursor: move
-    cursor: grabbing
-    cursor: -moz-grabbing
-    cursor: -webkit-grabbing
+    cursor: move !important
+    cursor: grabbing !important
+    cursor: -moz-grabbing !important
+    cursor: -webkit-grabbing !important
   @else if $type == zoom-in
-    cursor: -webkit-zoom-in
-    cursor: -moz-zoom-in
-    cursor: zoom-in
+    cursor: -webkit-zoom-in !important
+    cursor: -moz-zoom-in !important
+    cursor: zoom-in !important
   @else
-    cursor: $type
+    cursor: $type !important
+
+=pointer
+  +cursor(pointer)
