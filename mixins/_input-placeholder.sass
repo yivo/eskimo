@@ -1,6 +1,7 @@
-// Crossbrowser input placeholder
+// Crossbrowser input placeholder.
+// http://stackoverflow.com/questions/2610497/change-an-inputs-html5-placeholder-color-with-css
 =input-placeholder
-  // Firefox 18-
+  // Firefox 4-18
   &:-moz-placeholder
     @content
 
@@ -8,8 +9,10 @@
   &::-moz-placeholder
     @content
 
+  // IE 10-11
   &:-ms-input-placeholder
     @content
 
+  // Safari, Chrome, Opera 15+, Edge
   &::-webkit-input-placeholder
     @content
