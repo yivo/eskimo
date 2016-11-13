@@ -1,0 +1,11 @@
+// normalize.scss | MIT License | github.com/necolas/normalize.css
+//
+// Adding overflow: hidden fixes IE9's SVG rendering.
+// Earlier versions of IE don't support SVG,
+// so we can safely use the :not() and :root selectors
+// that modern browsers use in the default UA stylesheets to apply this style.
+//
+// https://lists.w3.org/Archives/Public/public-svg-wg/2008JulSep/0339.html
+//
+svg:not(:root)
+  overflow: hidden
