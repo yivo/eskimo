@@ -1,0 +1,14 @@
+// rem unit with fallback.
+// To use this mixin variable $font-size-base must be defined.
+//
+// Usage example:
+//   Define variable:
+//     $font-size-base: 14px
+//   Use mixin:
+//     +rem(2)
+//   Result:
+//     font-size: 28px
+//     font-size: 2rem
+=rem($x)
+  font-size: $x * $font-size-base
+  font-size: $x * 1rem
