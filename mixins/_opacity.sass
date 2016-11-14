@@ -9,20 +9,22 @@
   // Safari 1.x (pre WebKit).
   -khtml-opacity: $n
 
-  // Required for IE.
-  zoom: 1
+  @if $legacy-support-for-ie
 
-  // IE 8.
-  @if $n == 1
-    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false)
-    filter:     progid:DXImageTransform.Microsoft.Alpha(enabled=false)
+    // Required for IE.
+    zoom: 1
 
-  @else
-    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($n * 100)})
-    filter:     progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($n * 100)})
+    // IE 8.
+    @if $n == 1
+      -ms-filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false)
+      filter:     progid:DXImageTransform.Microsoft.Alpha(enabled=false)
 
-  // IE 5-7.
-  filter: alpha(opacity=#{round($n * 100)})
+    @else
+      -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($n * 100)})
+      filter:     progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($n * 100)})
+
+    // IE 5-7.
+    filter: alpha(opacity=#{round($n * 100)})
 
   // Firefox 0.9+, Safari 2?, Chrome any?, Opera 9+, IE 9+.
   opacity: $n
