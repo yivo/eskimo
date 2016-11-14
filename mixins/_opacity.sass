@@ -1,18 +1,18 @@
 // https://css-tricks.com/css-transparency-settings-for-all-broswers/
-// For IE8 filter doesn't work for pseudo elements
+// For IE8 filter doesn't work for pseudo elements.
 =opacity($n)
   -webkit-opacity: $n
 
-  // Older than Firefox 0.9, Netscape
+  // Older than Firefox 0.9, Netscape.
   -moz-opacity: $n
 
-  // Safari 1.x (pre WebKit)
+  // Safari 1.x (pre WebKit).
   -khtml-opacity: $n
 
-  // Required for IE
+  // Required for IE.
   zoom: 1
 
-  // IE 8
+  // IE 8.
   @if $n == 1
     -ms-filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false)
     filter:     progid:DXImageTransform.Microsoft.Alpha(enabled=false)
@@ -21,12 +21,10 @@
     -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($n * 100)})
     filter:     progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($n * 100)})
 
-  // IE 5-7
+  // IE 5-7.
   filter: alpha(opacity=#{round($n * 100)})
 
-  // Modern!
-  // Firefox 0.9+, Safari 2?, Chrome any?
-  // Opera 9+, IE 9+
+  // Firefox 0.9+, Safari 2?, Chrome any?, Opera 9+, IE 9+.
   opacity: $n
 
 =transparent
