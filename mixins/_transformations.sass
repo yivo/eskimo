@@ -7,16 +7,18 @@
   -ms-transform:      rotate($deg)
   transform:          rotate($deg)
 
-  $m11: cos($deg)
-  $m12: sin($deg) * -1
-  $m21: sin($deg)
-  $m22: cos($deg)
+  @if $legacy-support-for-ie
 
-  // IE8+ - must be on one line, unfortunately
-  -ms-filter: progid:DXImageTransform.Microsoft.Matrix(M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, SizingMethod='auto expand')
+    $m11: cos($deg)
+    $m12: sin($deg) * -1
+    $m21: sin($deg)
+    $m22: cos($deg)
 
-  // IE6 and 7
-  filter:     progid:DXImageTransform.Microsoft.Matrix(M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, SizingMethod='auto expand')
+    // IE8+ - must be on one line, unfortunately.
+    -ms-filter: progid:DXImageTransform.Microsoft.Matrix(M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, SizingMethod='auto expand')
 
-  // Required for IE
-  zoom: 1
+    // IE6,7 - must be on one line, unfortunately.
+    filter:     progid:DXImageTransform.Microsoft.Matrix(M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, SizingMethod='auto expand')
+
+    // Required for IE.
+    zoom: 1
