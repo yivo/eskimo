@@ -1,20 +1,29 @@
-=cursor($type)
+=cursor($type, $important: '!important')
+  @if $important == false
+    $important: ''
+
+  @if $important == true
+    $important: '!important'
+
   @if $type == grab
-    cursor: move !important
-    cursor: grab !important
-    cursor: -moz-grab !important
-    cursor: -webkit-grab !important
+    cursor: move         #{$important}
+    cursor: -moz-grab    #{$important}
+    cursor: -webkit-grab #{$important}
+    cursor: grab         #{$important}
+
   @else if $type == grabbing
-    cursor: move !important
-    cursor: grabbing !important
-    cursor: -moz-grabbing !important
-    cursor: -webkit-grabbing !important
+    cursor: move             #{$important}
+    cursor: -moz-grabbing    #{$important}
+    cursor: -webkit-grabbing #{$important}
+    cursor: grabbing         #{$important}
+
   @else if $type == zoom-in
-    cursor: -webkit-zoom-in !important
-    cursor: -moz-zoom-in !important
-    cursor: zoom-in !important
+    cursor: -moz-zoom-in    #{$important}
+    cursor: -webkit-zoom-in #{$important}
+    cursor: zoom-in         #{$important}
+
   @else
-    cursor: $type !important
+    cursor: $type #{$important}
 
 =pointer
   +cursor(pointer)
