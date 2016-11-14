@@ -1,14 +1,20 @@
+// https://gist.github.com/nathos/4611077
 =user-select($type: auto)
-  user-select: $type
+  user-select:    $type
   -o-user-select: $type
 
   @if $type == none
     -moz-user-select: -moz-none
 
-  -moz-user-select: $type
-  -khtml-user-select: $type
+  -moz-user-select:    $type
+  -khtml-user-select:  $type
   -webkit-user-select: $type
-  -ms-user-select: $type
+  -ms-user-select:     $type
+
+  @if $type == none
+    // Disable extra properties on touchscreen devices.
+    +touch-callout(none)
+    +tap-highlight-color($transparent)
 
 =noselect
   +user-select(none)
