@@ -1,0 +1,23 @@
+// About white-space property:
+//   http://www.impressivewebs.com/css-white-space/
+//   http://meyerweb.com/eric/css/tests/white-space.html
+//
+// About text properties:
+//   https://kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css/
+//   https://gist.github.com/darryl-snow/3838120
+//
+// Interactive Testing Tool:
+//   http://shpargalkablog.ru/2013/02/word-wrap.html
+//
+=white-space($type)
+  // pre-line is not supported by IE up to version 7, Firefox up to version 3.0, and Opera up to version 9.2.
+  // pre-wrap is not supported by IE up to version 7, and Firefox up to version 3.0.
+
+  @if $type == pre-wrap
+    white-space: -moz-pre-wrap // Mozilla Firefox, since 1999
+    white-space: -hp-pre-wrap  // HP printers
+    white-space: -o-pre-wrap   // Opera 7
+    white-space: -pre-wrap     // Opera 4-6
+    white-space: pre-wrap      // CSS 2.1
+  @else
+    white-space: $type
