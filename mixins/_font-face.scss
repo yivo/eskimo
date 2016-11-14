@@ -1,4 +1,4 @@
-// Really working font-face mixin
+// Really working font-face mixin.
 @mixin font-face(
   $font-family,
   $file-path,
@@ -25,7 +25,7 @@
 
     @each $key, $values in $formats-map {
 
-      // Fix broken contains function
+      // Fix broken contains function.
       @if index($file-formats, $key) {
         $file-path:   nth($values, 1);
         $font-format: nth($values, 2);
