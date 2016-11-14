@@ -1,9 +1,12 @@
-// Crossbrowser inline-block
+// Crossbrowser inline-block.
 =inline-block($align: middle)
   display: -moz-inline-stack
   display: inline-block
+
   @if $align and $align != none
     vertical-align: $align
-  *vertical-align: auto
-  zoom: 1
-  *display: inline
+
+  @if $legacy-support-for-ie
+    *vertical-align: auto
+    zoom: 1
+    *display: inline
