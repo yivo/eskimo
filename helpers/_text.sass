@@ -1,47 +1,33 @@
-.text-center
-  text-align: center
+@import ../private
 
-.text-left
-  text-align: left
-
-.text-right
-  text-align: right
-
-.text-justify
-  text-align: justify
+.text
+  &-center
+    text-align: center
+  &-left
+    text-align: left
+  &-right
+    text-align: right
+  &-justify
+    text-align: justify
+  &-uppercase
+    text-transform: uppercase
+  &-lowercase
+    text-transform: lowercase
+  &-capitalize
+    text-transform: capitalize
+  &-underline
+    text-decoration: underline
+  &-italic
+    font-style: italic
+  &-ellipsis
+    +text-ellipsis
+  &-white
+    color: $white
+  &-bold
+    +_text-bold
 
 .text-nowrap, .nowrap
   +nowrap
 
-.text-uppercase
-  text-transform: uppercase
-
-.text-lowercase
-  text-transform: lowercase
-
-.text-capitalize
-  text-transform: capitalize
-
-.text-underline
-  text-decoration: underline
-
-.text-spaced
-  letter-spacing: 1px
-
-.text-thin
-  font-weight: 100
-
-.text-light
-  font-weight: 300
-
-.text-normal
-  font-weight: 400
-
-.text-bold
-  font-weight: 700
-
-.text-italic
-  font-style: italic
-
-.text-ellipsis
-  +ellipsis
+.special-character, .symbol
+  font-family: $font-family-symbol
