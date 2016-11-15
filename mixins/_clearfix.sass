@@ -2,9 +2,11 @@
   float: none
   clear: both
 
-// From bootstrap 3
+// From bootstrap 3.
 =clearfix
-  *zoom: 1
+  @if $legacy-support-for-ie
+    *zoom: 1
+
   &:before, &:after
     content: ' '
     display: table
