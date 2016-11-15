@@ -1,10 +1,16 @@
+@import ../private
+
 table
+  // Remove spacing between table cells.
   border-collapse: collapse
   border-spacing: 0
-  border: none
+
   empty-cells: show
   max-width: 100%
+
+caption, th, td
   text-align: left
+  vertical-align: middle
 
 tr
   +noselect
@@ -12,11 +18,8 @@ tr
 td, th
   +user-select(text)
 
-td, th, img
-  vertical-align: middle
-
 td
   font-weight: inherit
 
-th
-  font-weight: bold
+th, caption
+  +_text-bold
