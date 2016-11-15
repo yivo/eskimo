@@ -3,3 +3,7 @@
 /build/
 /node_modules/
 /bower_components/
+/test/test.css
+/test/test.min.css
+/test/test.min.css.gz
+/test/test.html
