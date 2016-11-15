@@ -22,6 +22,11 @@
     cursor: -webkit-zoom-in #{$important}
     cursor: zoom-in         #{$important}
 
+  @else if $type == zoom-out
+    cursor: -moz-zoom-out    #{$important}
+    cursor: -webkit-zoom-out #{$important}
+    cursor: zoom-out         #{$important}
+
   @else
     cursor: $type #{$important}
 
