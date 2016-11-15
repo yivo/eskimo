@@ -1,3 +1,5 @@
+@if $include-breakpoints {
+
 .mobile-only           { @include not-mobile    { display: none !important; } }
 .mobile-sm-only        { @include not-mobile-sm { display: none !important; } }
 .mobile-md-only        { @include not-mobile-md { display: none !important; } }
@@ -24,3 +26,5 @@
 
 .mobile-or-tablet-only { @include neither-mobile-nor-tablet { display: none !important; } }
 .tablet-or-pc-only     { @include neither-tablet-nor-pc     { display: none !important; } }
+
+}
