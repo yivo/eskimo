@@ -2,7 +2,7 @@
   "name": "eskimo",
   "homepage": "https://github.com/yivo/eskimo",
   "authors": [
-    "Yaroslav Konoplov <yaroslav@inbox.com>"
+    "Yaroslav Konoplov <eahome00@gmail.com>"
   ],
   "description": "Must-have SASS lib",
   "main": "_eskimo.sass",
@@ -14,6 +14,11 @@
     "tests",
     "spec",
     "coffeespec",
-    "gulpfile.*"
-  ]
+    "gulpfile.*",
+    "Gemfile*"
+  ],
+  "devDependencies": {
+    "compass-mixins": "^0.12.10",
+    "mathsass":       "^0.9.5"
+  }
 }
