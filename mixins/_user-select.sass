@@ -11,10 +11,5 @@
   -webkit-user-select: $type
   -ms-user-select:     $type
 
-  @if $type == none
-    // Disable extra properties on touchscreen devices.
-    +touch-callout(none)
-    +tap-highlight-color($transparent)
-
 =noselect
   +user-select(none)
