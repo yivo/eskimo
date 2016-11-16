@@ -1,0 +1,23 @@
+hr
+  display:    block
+  border:     0
+  border-top: 1px solid $gray
+  padding:    0
+  margin:     0.5em 0
+
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Add the correct box sizing in Firefox.
+  +box-sizing(content-box)
+  height: 0
+
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Show the overflow in Edge and IE.
+  overflow: visible
+
+  +noselect
+  +clear
+
+  &.dotted
+    border-style: dotted
+  &.dashed
+    border-style: dashed
