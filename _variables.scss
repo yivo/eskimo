@@ -1,9 +1,12 @@
-$white: #FFFFFF !default;
-$black: #000000 !default;
-$gray:  #CCCCCC !default;
+$white:       #FFFFFF;
+$black:       #000000;
+$transparent: rgba(0, 0, 0, 0);
+$gray:        #CCCCCC;
+$yellow:      #FFFF00;
+$headings:    h1 h2 h3 h4 h5 h6;
 
-$headings-scale: 1.155             !default;
-$debug-breakpoints: false          !default;
+$debug-breakpoints:   false !default;
+$include-breakpoints: true  !default;
 
 $mobile-sm-min: 0                  !default;
 $mobile-sm-max: 320px              !default;
