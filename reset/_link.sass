@@ -1,4 +1,4 @@
-=normalize-link
+a
   // Force cursor: pointer.
   +pointer
 
@@ -14,3 +14,8 @@
   // Remove the outline on focused links when they are also active or hovered in all browsers (opinionated).
   &:active, &:hover
     outline: 0
+
+  // Normalize text decoration.
+  text-decoration: none
+  &:hover
+    text-decoration: underline
