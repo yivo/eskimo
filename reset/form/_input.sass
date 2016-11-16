@@ -1,0 +1,39 @@
+=normalize-input
+
+  // Undo browser defaults.
+  +appearance(none)
+
+  margin:  0
+  padding: 0
+  border:  0
+  outline: 0
+  background:  none
+  font:        inherit
+  font-style:  normal
+  color:       inherit
+
+  // Fix and normalize line height in Firefox.
+  // http://meyerweb.com/eric/thoughts/2008/05/06/line-height-abnormal
+  // http://cssnewbie.com/input-button-line-height-bug
+  line-height: inherit
+
+  // Adjust background display.
+  +background-clip(padding-box)
+
+  // Remove rounded corners.
+  +border-radius(0)
+
+  // Change box sizing (repeated).
+  +box-sizing(border-box)
+
+  // Remove any text decorations and transformations.
+  text-decoration: none
+  text-transform:  none
+
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Show the overflow in IE and Edge.
+  overflow: visible
+
+  // https://github.com/necolas/normalize.css/issues/157#issuecomment-21730131
+  // IE may set input opacity when you apply styles to :ms-input-placeholder so input looks disabled.
+  opacity: 1

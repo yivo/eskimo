@@ -1,0 +1,66 @@
+=normalize-button
+
+  // Undo browser defaults.
+  +appearance(none)
+
+  // Display as inline-block.
+  +inline-block(middle)
+
+  // Apply autowidth.
+  width: auto
+
+  // Reset box model.
+  margin:  0
+  padding: 0
+  border:  0
+
+  // Reset outline.
+  outline: 0
+
+  // Reset background properties.
+  background: none
+
+  // Inherit font properties.
+  font:        inherit
+  font-style:  normal
+  color:       inherit
+
+  // Align text center.
+  text-align: center
+
+  // Fix and normalize line height in Firefox.
+  // http://meyerweb.com/eric/thoughts/2008/05/06/line-height-abnormal
+  // http://cssnewbie.com/input-button-line-height-bug
+  line-height: inherit
+
+  // Adjust background display.
+  +background-clip(padding-box)
+
+  // Remove rounded corners.
+  +border-radius(0)
+
+  // Change box sizing (repeated).
+  +box-sizing(border-box)
+
+  // Remove any text decorations and transformations.
+  &, &:hover
+    text-decoration: none
+    text-transform:  none
+
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Show the overflow in IE and Edge.
+  overflow: visible
+
+  // Force cursor: pointer.
+  +pointer
+
+  // Don't break buttons.
+  +nowrap
+
+  // Deny selection of buttons
+  +noselect
+
+  &:disabled
+    +cursor(not-allowed)
+
+  -ms-high-contrast-adjust: none

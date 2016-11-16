@@ -1,0 +1,58 @@
+=normalize-textarea
+
+  // Undo browser defaults.
+  +appearance(none)
+
+  // Display as block.
+  display: block
+
+  // Make textarea responsive.
+  width: 100%
+
+  // Reset box model.
+  margin:  0
+  padding: 0
+  border:  0
+
+  // Reset outline.
+  outline: 0
+
+  // Reset background properties.
+  background:  none
+
+  // Inherit font properties.
+  font:        inherit
+  font-style:  normal
+  color:       inherit
+
+  // Fix and normalize line height in Firefox.
+  // http://meyerweb.com/eric/thoughts/2008/05/06/line-height-abnormal
+  // http://cssnewbie.com/input-button-line-height-bug
+  line-height: inherit
+
+  // Adjust background display.
+  +background-clip(padding-box)
+
+  // Remove rounded corners.
+  +border-radius(0)
+
+  // Change box sizing (repeated).
+  +box-sizing(border-box)
+
+  // Remove any text decorations and transformations.
+  text-decoration: none
+  text-transform:  none
+
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Remove the vertical scrollbar in IE.
+  overflow: auto
+
+  // Set min height.
+  min-height: 4em
+
+  // Change the resize direction on textareas in all browsers.
+  resize: vertical
+
+  // https://github.com/necolas/normalize.css/issues/157#issuecomment-21730131
+  // IE may set input opacity when you apply styles to :ms-input-placeholder so input looks disabled.
+  opacity: 1
