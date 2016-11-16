@@ -1,170 +1,87 @@
 // Ultimate form reset
 // https://gist.github.com/nathansmith/1599212
 
+// LIST OF SUPPORTED FORM ELEMENTS:
+//   button type=button|submit|reset
+//   input type=text|number|password
+
 label
-  font-weight: bold
-  +cursor(pointer)
+  // Force cursor: pointer.
+  +pointer
 
-input::ms-clear,
-select::-ms-expand, // Get rid of drop-down arrow in IE
-input[type="password"]::ms-reveal
-  display: none
-
-[type="search"]
-  &::-webkit-search-decoration, &::-webkit-search-cancel-button
-    -webkit-appearance: none
-
-input[type="radio"],
-input[type="checkbox"]
-  margin: 0
-  padding: 0
-  outline: 0
-
-textarea,
-select,
-button,
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="email"],
-input[type="month"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="time"],
-input[type="url"],
-input[type="week"],
-input[type="reset"],
-input[type="submit"],
-input[type="button"],
-input[type="image"]
-  +inline-block(top)
-  margin: 0
-  padding: 0
-  border: 0
-  outline: 0
-  background: none
-  font-size: inherit
-  font-family: inherit
-  text-align: left
-  line-height: inherit
-
-  // Undo WebKit defaults
-  +appearance(none)
-
-  // Adjust background display
-  +background-clip(padding-box)
-
-  // Remove rounded corners
-  +border-radius(0)
-
-  // Change box model
-  +box-sizing(border-box)
-
-  // Get rid of up/down, plus/minus buttons
-  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
-    -webkit-appearance: none
-
-button,
-input[type="reset"],
-input[type="submit"],
-input[type="button"],
-input[type="image"] 
-  overflow: visible
-  text-align: center
-  text-decoration: none
-  width: auto
-  +cursor(pointer)
-
-  // Deny selection of buttons
+  // Deny selection.
   +noselect
 
-  // Make buttons play nice in IE
-  @at-root .ie7 &, .lt-ie8 &
-    filter: chroma(color=#000000)
-
-button,
-input[type="reset"],
-input[type="submit"],
-input[type="button"]
-  // Firefox has this in its user-agent (?)
-  // stylesheet, so let's just roll with it.
-  //
-  // http://meyerweb.com/eric/thoughts/2008/05/06/line-height-abnormal
-  //
-  // http://cssnewbie.com/input-button-line-height-bug
-  //
++input-placeholder
+  // Fix abnormal line height in Safari (+ all browsers).
+  // http://stackoverflow.com/a/17681447
   line-height: inherit
 
-// Fix abnormal line height in Safari
-//   http://stackoverflow.com/a/17681447
-\::-webkit-input-placeholder
-  line-height: inherit
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Correct the text style on placeholders in Chrome, Edge, and Safari (+ all browsers).
+  color: inherit
 
-input[type="hidden"]
-  font-size: 0
+  // Firefox sets opacity for placeholders.
+  // https://github.com/necolas/normalize.css/issues/157#issuecomment-15658879
+  opacity: 1
 
-button[disabled],
-input[disabled],
-select[disabled],
-select[disabled] option,
-select[disabled] optgroup,
-textarea[disabled]
-  +noselect
-  +cursor(not-allowed)
-  +opacity(1)
+::-webkit-file-upload-button
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Correct the inability to style clickable types in iOS and Safari.
+  -webkit-appearance: button
 
-textarea
-  // normalize.css: Remove the default vertical scrollbar in IE
-  overflow: auto
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Change font properties to `inherit` in Safari.
+  font: inherit
 
-  min-height: 4em
-  resize: vertical
-  width: 100%
+// normalize.css | MIT License | github.com/necolas/normalize.css
+// Correct the cursor style on increment and decrement buttons in Chrome.
+[type='number']
+  &::-webkit-inner-spin-button, &::-webkit-outer-spin-button
+    height: auto
 
-optgroup 
-  font-style: normal
-  font-weight: normal
+legend
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Correct color not being inherited in IE 6/7/8/9.
+  /* border: 0 */
 
-select option
-  border: 0
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Correct text not wrapping in Firefox 3.
+  white-space: normal
 
-// For Firefox
-@-moz-document url-prefix() 
-  input, button, select, textarea
-    // Suppress red glow that Firefox
-    // adds to form fields by default,
-    // even when user is still typing.
-    &:invalid 
-      -moz-box-shadow: none
-      box-shadow: none
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Correct the text wrapping in Edge and IE.
+  display: table
+  max-width: 100%
+  /* box-sizing: border-box */
+  /* white-space: normal */
 
-    // Kill phantom spacing and dotted
-    // border that appears in Firefox.
-    // http://stackoverflow.com/questions/18794026/remove-dotted-outline-from-range-input-element-in-firefox
-    &::-moz-focus-inner,
-    &::-moz-focus-outer,
-    &:-moz-focusring
-      border: 0
-      padding: 0
-      outline: 0
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Correct the color inheritance from `fieldset` elements in IE.
+  color: inherit
 
-  select
-    // Get rid of drop-down arrow
-    // https://gist.github.com/joaocunha/6273016/
-    // TODO There is solution. Need to read all comments and write CSS which fixes this issue
-    // overflow: -moz-hidden-unscrollable
-    -moz-appearance: none
-    text-indent: 0.01px
-    text-overflow: ''
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Remove the padding so developers are not caught out when they zero out
+  // `fieldset` elements in all browsers.
+  /* padding: 0 */
 
-    // http://stackoverflow.com/questions/19451183/cannot-remove-outline-dotted-border-from-firefox-select-drop-down
-    &:-moz-focusring
-      color: transparent
-      text-shadow: 0 0 0 #000
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Correct alignment displayed oddly in IE 6/7.
+  @if $legacy-support-for-ie
+    *margin-left: -7px
 
-  optgroup
-    // Font family repeated, for Firefox.
-    font-family: inherit
+@-moz-document url-prefix()
+
+  // Kill phantom spacing and dotted border that appears in Firefox.
+  // http://stackoverflow.com/questions/18794026/remove-dotted-outline-from-range-input-element-in-firefox
+  ::-moz-focus-inner, ::-moz-focus-outer, \:-moz-focusring
+    border:  0
+    padding: 0
+    outline: 0
+
+  // Suppress red glow that Firefox adds to form fields by default,
+  // even when form field isn't required or user is still typing.
+  // https://developer.mozilla.org/uk/docs/Web/CSS/:invalid
+  \:invalid, \:-moz-submit-invalid, \:-moz-ui-invalid
+    -moz-box-shadow: none
+    box-shadow: none
