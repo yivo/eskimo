@@ -1,100 +1,35 @@
-// Reset box model. I'm using "compass/reset" but compass does not reset box model.
-// I often forget about this and get a lot of bugs.
-*
-  +box-sizing(border-box)
+// Eric Meyer's reset 2.0 | http://meyerweb.com/eric/tools/css/reset/index.html
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, canvas
+  // Normalize box model.
+  margin:         0
+  padding:        0
+  border:         0
 
-\:focus
-  outline: none
-
-strong, b
-  font-weight: bold
-
-s, strike, del
-  text-decoration: line-through
-
-i, em, span[lang]
-  font-style: italic
-
-img
-  line-height: 0
-  border: 0
-
-  // Scale images in IE7 more attractively
-  @at-root .ie7 &, .lt-ie8 &
-    -ms-interpolation-mode: bicubic
-
-a
-  +cursor(pointer)
-
-p
-  margin: 0 0 1em 0
-
-header, section, footer, hr, blockquote, table
-  +clear
-
-abbr[title], dfn[title]
-  border-bottom: 1px dotted $black
-  +cursor(help)
-
-small
-  font-size: 85%
-
-sub, sup
-  font-size: 75%
-  line-height: 0
-  position: relative
+  // Normalize vertical metrics.
   vertical-align: baseline
 
-sup
-  top: -0.5em
+  // Normalize box sizing.
+  +box-sizing(border-box)
 
-sub
-  bottom: -0.25em
+html
+  // normalize.css | MIT License | github.com/necolas/normalize.css
+  // Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.
+  +text-size-adjust(100%)
 
-hr
-  display: block
-  height: 1px
-  border: 0
-  border-top: 1px solid $gray
-  margin: 1em 0
-  padding: 0
-  font-size: 0
-  line-height: 0
-  +noselect
-  &.dotted
-    border-style: dotted
-  &.dashed
-    border-style: dashed
-
-// Standardize any monospaced elements
-pre, code, kbd, samp
-  +code
-
-code, tt
+// Normalize box sizing for pseudo elements.
+*
   &:before, &:after
-    letter-spacing: -0.2em
-    content: '\00a0'
-
-// https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/
-blockquote
-  display: block
-  width: 90%
-  margin: 0 auto
-  padding: 0.75em 10px 0.75em 10px
-  background: lighten($gray, 17.5%)
-  border-left: 10px solid $gray
-  color: inherit
-  quotes: "\201C""\201D""\2018""\2019"
-  blockquote
-    width: 100%
-    padding: 0.5em 10px
-    margin: 0.3em 0 0 10px
-  &:before
-    color: $gray
-    content: open-quote
-    font-size: 4em
-    line-height: 0.1em
-    margin-right: 0.25em
-    vertical-align: -0.4em
-  p
-    display: inline
+    +box-sizing(inherit)
+    vertical-align: inherit
