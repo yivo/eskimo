@@ -1,20 +1,24 @@
 /*! eskimo | github.com/yivo/eskimo */
 
-// Must be imported after compass.
-// Example:
-//   @import app/variables
+// IMPORT AFTER COMPASS.
+
+// USAGE WITH COMPASS:
+//   @import application/variables
 //   @import eskimo/variables
+//   @import eskimo/typekit
 //   @import compass
-//   @import compass/reset
 //   @import eskimo/eskimo
 
-// Or is using compass-mixins:
+// USAGE WITH COMPASS-MIXINS:
+//   @import application/variables
+//   @import eskimo/variables
+//   @import eskimo/typekit
 //   @import compass-mixins/lib/compass
-//   @import compass-mixins/lib/compass/reset
 //   @import compass-mixins/lib/animation/core
 //   @import eskimo/eskimo
 
-// Also you must provider math functions. Recommended: github.com/terkel/mathsass
+// Also you must provider trigonometric functions: sin(), cos().
+// Recommended collection of math functions: https://github.com/terkel/mathsass
 
 @import ./mixins/all
 @import ./utilities/all
