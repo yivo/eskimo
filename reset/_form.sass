@@ -3,7 +3,7 @@
 
 // LIST OF SUPPORTED FORM ELEMENTS:
 //   button type=button|submit|reset
-//   input type=text|number|password
+//   input  type=text|number|password|email
 
 label
   // Force cursor: pointer.
@@ -13,10 +13,6 @@ label
   +noselect
 
 +input-placeholder
-  // Fix abnormal line height in Safari (+ all browsers).
-  // http://stackoverflow.com/a/17681447
-  line-height: inherit
-
   // normalize.css | MIT License | github.com/necolas/normalize.css
   // Correct the text style on placeholders in Chrome, Edge, and Safari (+ all browsers).
   color: inherit
@@ -24,6 +20,11 @@ label
   // Firefox sets opacity for placeholders.
   // https://github.com/necolas/normalize.css/issues/157#issuecomment-15658879
   opacity: 1
+
+::-webkit-input-placeholder
+  // Fix abnormal line height in Safari.
+  // http://stackoverflow.com/a/17681447
+  line-height: normal
 
 ::-webkit-file-upload-button
   // normalize.css | MIT License | github.com/necolas/normalize.css
