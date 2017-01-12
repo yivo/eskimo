@@ -1,26 +1,37 @@
 {
-  "name": "eskimo",
-  "version": "1.1.0",
-  "description": "",
-  "author": "Yaroslav Konoplov <eahome00@gmail.com>",
-  "license": "MIT",
+  "name": "eskimo-sass",
+  "version": "1.1.6",
+  "description": "Must-have Sass lib",
+  "dependencies": {},
   "devDependencies": {
-    "del": "^1.1.1",
-    "gulp": "^3.6.2",
-    "gulp-concat": "^2.2.0",
-    "gulp-csso": "^2.0.0",
-    "gulp-gzip": "^1.4.0",
+    "coffee-script": "^1.12.2",
+    "compass-mixins": "^0.12.10",
+    "faker": "^3.1.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
     "gulp-jade": "^1.1.0",
-    "gulp-lazyload": "yivo/gulp-lazyload",
-    "gulp-plumber": "^1.0.0",
-    "gulp-preprocess": "^2.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.5.4",
-    "gulp-sass": "^2.3.2",
-    "preprocess": "^2.1.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "mathsass": "^0.9.5",
     "underscore": "^1.8.3"
   },
-  "dependencies": {
-    "faker": "^3.1.0"
-  }
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yivo/eskimo.git"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "css",
+    "lib"
+  ],
+  "author": "Yaroslav Konoplov <eahome00@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yivo/eskimo/issues"
+  },
+  "homepage": "https://github.com/yivo/eskimo#readme"
 }

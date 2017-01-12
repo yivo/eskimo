@@ -1,6 +1,7 @@
 /.idea/
 /.sass-cache/
 /build/
+/dev/
 /node_modules/
 /bower_components/
 /test/test.css

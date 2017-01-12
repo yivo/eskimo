@@ -1,17 +1,10 @@
-gulp = require('gulp')
-require('gulp-lazyload')
-  concat:     'gulp-concat'
-  preprocess: 'gulp-preprocess'
-  rename:     'gulp-rename'
-  del:        'del'
-  plumber:    'gulp-plumber'
-  replace:    'gulp-replace'
-  sass:       'gulp-sass'
-  jade:       'gulp-jade'
-  csso:       'gulp-csso'
-  _:          'underscore'
-  gzip:       'gulp-gzip'
-  faker:      'faker'
+gulp    = require 'gulp'
+concat  = require 'gulp-concat'
+plumber = require 'gulp-plumber'
+sass    = require 'gulp-sass'
+jade    = require 'gulp-jade'
+_       = require 'underscore'
+faker   = require 'faker'
 
 gulp.task 'default', ['build', 'watch'], ->
 
@@ -22,11 +15,6 @@ gulp.task 'css', ->
     .pipe plumber()
     .pipe sass()
     .pipe concat('test.css')
-    .pipe gulp.dest('test')
-    .pipe csso()
-    .pipe rename('test.min.css')
-    .pipe gulp.dest('test')
-    .pipe gzip(append: true, gzipOptions: { level: 9 })
     .pipe gulp.dest('test')
 
 gulp.task 'html', ->

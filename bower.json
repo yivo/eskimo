@@ -1,24 +1,22 @@
 {
   "name": "eskimo",
-  "homepage": "https://github.com/yivo/eskimo",
+  "description": "Must-have Sass lib",
   "authors": [
     "Yaroslav Konoplov <eahome00@gmail.com>"
   ],
-  "description": "Must-have SASS lib",
-  "main": "_eskimo.sass",
   "license": "MIT",
+  "keywords": [
+    "sass",
+    "scss",
+    "css",
+    "lib"
+  ],
+  "homepage": "https://github.com/yivo/eskimo",
   "ignore": [
+    "**/.*",
     "node_modules",
     "bower_components",
     "test",
-    "tests",
-    "spec",
-    "coffeespec",
-    "gulpfile.*",
-    "Gemfile*"
-  ],
-  "devDependencies": {
-    "compass-mixins": "^0.12.10",
-    "mathsass":       "^0.9.5"
-  }
+    "tests"
+  ]
 }
